@@ -1,7 +1,46 @@
+:root {
+  --first-color:#0f0;
+}
+
 .box {
   background-color: #f00;
   width: 200px;
   height: 200px;
+  color: #00f;
+  border: 2px solid #00f;
+}
+
+.parent {
+  background-color: #09c;
+  /*nested property*/
+  font-size: 20px;
+  font-weight: bolder;
+  font-style: italic;
+  background-image: url("https://semicode.tech/build/assets/mini-logo-60a53067.png");
+  background-position: center;
+  background-size: contain;
+}
+.parent .child {
+  color: #f00;
+}
+.parent .child .box {
+  font-size: 20px;
+  background-color: #09c;
+}
+.parent .child .box .box1 {
+  font-size: 40px;
+}
+.parent .child .box .box2 {
+  font-size: 50px;
+}
+.parent .child .box .box3 {
+  font-size: 60px;
+}
+.parent .child .box a {
+  font-size: 30px;
+}
+.parent .child .box a:hover {
+  color: #ff0;
 }
 
 /*# sourceMappingURL=index.css.map */

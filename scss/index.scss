@@ -1,6 +1,69 @@
+@use "sass:map";
+//all arthematic operators that in js exists in scss but not **
+// logical operator here is and ,or ,not
+$bool:not((5>4) and (5<6) or (2>5));
 $mainColor:#f00;
+// $f:1px-1rem;
+$textColor:#fff;
+$list:(#f00,#0f0,#00f);//array
+:root{
+	--first-color:#0f0;
+}
+
+//map is like object (key and value), to use it use map.get(var,key) ,and need to use "sass:map"
+$map:('red':#f00,
+	'green':#0f0,
+	'blue':#00f);
+$sizes:(40,50,60);//convert bottom in code to(40px,50px,60px)
+$backgroundName:'blackss';
 .box{
 	background-color: $mainColor;
 	width: 200px;
 	height: 200px;
+	color: map.get($map,'blue');
+	border: 2px solid nth($list,3);
+	// font-size: $f;//is error
+	//background: $bool;
 }
+
+.parent{
+	background-color: #09c;
+	/*nested property*/
+	font:{
+		size:20px;
+		weight:bolder;
+		style:italic;
+	}
+	background:{
+		image:url('https://semicode.tech/build/assets/mini-logo-60a53067.png');
+		position: center;
+		size: contain;
+	}
+
+	.child {
+		color: $mainColor;
+		.box{
+			font-size: 20px;
+			@if($backgroundName == 'white'){
+				background-color: #fff;
+			}@else if ($backgroundName == 'black'){
+				background-color: #000;
+			}@else{
+				background-color: #09c;
+			}
+			@for $i from 1 to 4 {//1,2,3 --> if through 3, meaning 1,2,3 also
+				.box#{$i}{
+					font-size: nth($sizes,$i) * 1px;//or #{nth($sizes,$i)}px
+				}
+			}
+			a{
+				font-size: 30px;
+				&:hover{
+					color: #ff0;
+				}
+			}
+		}
+	}
+}
+//to loop on map (key,value) we use @each
+//to loop on array we use @for
