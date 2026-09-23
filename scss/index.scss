@@ -1,3 +1,4 @@
+@use "abstract/variables";
 @use "sass:map";
 //all arthematic operators that in js exists in scss but not **
 // logical operator here is and ,or ,not
@@ -14,6 +15,16 @@ $list:(#f00,#0f0,#00f);//array
 $map:('red':#f00,
 	'green':#0f0,
 	'blue':#00f);
+$colors:('red':#f00,
+	'green':#0f0,
+	'blue':#00f);
+
+@each $key, $value in $colors{
+	.#{$key}{
+		background-color: $value;
+	}
+}
+
 $sizes:(40,50,60);//convert bottom in code to(40px,50px,60px)
 $backgroundName:'blackss';
 .box{
@@ -67,3 +78,10 @@ $backgroundName:'blackss';
 }
 //to loop on map (key,value) we use @each
 //to loop on array we use @for
+
+//import secondary scss file
+//@import "./abstract/variables";//import doesnt work
+
+.box{
+	font-family: $mainFont;
+}
