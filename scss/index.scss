@@ -1,9 +1,9 @@
-@use "abstract/variables";
+@use "abstracts/variables" as *;
 @use "sass:map";
 //all arthematic operators that in js exists in scss but not **
 // logical operator here is and ,or ,not
 $bool:not((5>4) and (5<6) or (2>5));
-$mainColor:#f00;
+
 // $f:1px-1rem;
 $textColor:#fff;
 $list:(#f00,#0f0,#00f);//array
@@ -11,6 +11,10 @@ $list:(#f00,#0f0,#00f);//array
 	--first-color:#0f0;
 }
 
+body{
+	background-color: $mainColor;
+}
+$mainColor:#f00;
 //map is like object (key and value), to use it use map.get(var,key) ,and need to use "sass:map"
 $map:('red':#f00,
 	'green':#0f0,
