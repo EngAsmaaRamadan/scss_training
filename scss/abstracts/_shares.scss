@@ -1,0 +1,7 @@
+@forward "_colors";
+@forward "_fonts";
+// @forward "_mixin";
+
+.test{
+	background-color: #09c;//$secondColor will not worked with only forward , must @use
+}

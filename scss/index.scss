@@ -1,7 +1,75 @@
-@use "abstracts/variables" as *;
+
+
+@use "abstracts/shares" as *;
+@use "components/cards";
+// @use "abstracts/colors";
+// @use "abstracts/colors" as x;
+// @use "abstracts/colors" as *;
 @use "sass:map";
-//all arthematic operators that in js exists in scss but not **
+// @import "abstracts/colors";
+ //all arthematic operators that in js exists in scss but not **
 // logical operator here is and ,or ,not
+@mixin center($JC : center,$AI : center){
+	display: flex;
+	justify-content: $JC;
+	align-items: $AI;
+}
+
+@mixin respond($BreakPoint){
+	@if($BreakPoint == mobile){
+		@media(max-width:600px){
+			// font-size: 30px;
+			@content;
+		}
+	}@else if($BreakPoint == tablet){
+		@media(max-width: 900px){
+			@content;
+		}
+	}
+}
+
+@function sum($x,$y){
+	@return $x + $y;
+}
+//$JS = center,$AI = center
+
+
+
+
+.box{
+	// font-family: $mainFont;
+	color: $secondColor;//if not as * must call it by file name or alies name
+	@include center(flex-start);
+	font-size: sum(25,25) * 1px;
+	font-size: #{sum(40,25)}px;
+	@include respond(mobile){
+		font-size: 30px;
+		color: #0ff;
+	}
+
+	@include respond(tablet);
+	@include respond(tablet){
+		color: #999;
+		font-size: 70px;
+	}
+}
+
+
+%name{//alies name
+	background-color: #09c;
+	color: $firstColor;
+}
+
+.box1{
+	@extend %name;
+	font-size: 50px;
+}
+
+.box2{
+	@extend %name;
+	font-size: 40px;
+}
+
 $bool:not((5>4) and (5<6) or (2>5));
 
 // $f:1px-1rem;
@@ -12,7 +80,8 @@ $list:(#f00,#0f0,#00f);//array
 }
 
 body{
-	background-color: $mainColor;
+	// background-color: $firstColor;
+	@include center($AI:flex-start);
 }
 $mainColor:#f00;
 //map is like object (key and value), to use it use map.get(var,key) ,and need to use "sass:map"
@@ -26,6 +95,7 @@ $colors:('red':#f00,
 @each $key, $value in $colors{
 	.#{$key}{
 		background-color: $value;
+		@include center($JC:flex-start);
 	}
 }
 
@@ -33,6 +103,7 @@ $sizes:(40,50,60);//convert bottom in code to(40px,50px,60px)
 $backgroundName:'blackss';
 .box{
 	background-color: $mainColor;
+	@include center(null,flex-start);
 	width: 200px;
 	height: 200px;
 	color: map.get($map,'blue');
@@ -85,7 +156,3 @@ $backgroundName:'blackss';
 
 //import secondary scss file
 //@import "./abstract/variables";//import doesnt work
-
-.box{
-	font-family: $mainFont;
-}

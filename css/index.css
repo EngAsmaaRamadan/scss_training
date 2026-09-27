@@ -1,25 +1,76 @@
+.test {
+  background-color: #09c;
+}
+
+.box {
+  color: #00f;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 50px;
+  font-size: 65px;
+}
+@media (max-width: 600px) {
+  .box {
+    font-size: 30px;
+    color: #0ff;
+  }
+}
+@media (max-width: 900px) {
+  .box {
+    color: #999;
+    font-size: 70px;
+  }
+}
+
+.box2, .box1 {
+  background-color: #09c;
+  color: #f0f;
+}
+
+.box1 {
+  font-size: 50px;
+}
+
+.box2 {
+  font-size: 40px;
+}
+
 :root {
   --first-color:#0f0;
 }
 
 body {
-  background-color: #f0f;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .red {
   background-color: #f00;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .green {
   background-color: #0f0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .blue {
   background-color: #00f;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .box {
   background-color: #f00;
+  display: flex;
+  align-items: flex-start;
   width: 200px;
   height: 200px;
   color: #00f;
@@ -57,10 +108,6 @@ body {
 }
 .parent .child .box a:hover {
   color: #ff0;
-}
-
-.box {
-  font-family: "Segoe UI";
 }
 
 /*# sourceMappingURL=index.css.map */
