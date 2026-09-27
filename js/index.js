@@ -9,7 +9,7 @@
 // 		}
 // 	};
 function getData(){
-let xhr = new XMLHttpRequest();
+let xhr = new XMLHttpRequest();//constractor creation
 // console.log(xhr);
 	xhr.open('GET','https://jsonplaceholder.typicode.com/users');
 	xhr.onload = function (){
