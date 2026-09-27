@@ -13,7 +13,7 @@ let xhr = new XMLHttpRequest();//constractor creation, create ele in heap not st
 // console.log(xhr);
 	xhr.open('GET','https://jsonplaceholder.typicode.com/users');
 	xhr.onload = function (){
-		if(xhr.status == 200){
+		if(xhr.status == 200){//or this.status
 			console.log(JSON.parse(xhr.responseText));
 		}else{
 			console.log(xhr.status);
